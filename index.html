@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main>
+      <!-- Rating state start -->
+      <div class="container">
+        <div class="select-rating">
+          <img
+            src="./images/icon-star.svg"
+            alt="rating start"
+            class="rating-icon"
+          />
+          <h1 class="rating-heading">How did we do?</h1>
+
+          <h3 class="rating-description">
+            Please let us know how we did with your support request. All
+            feedback is appreciated to help us improve our offering!
+          </h3>
+
+          <ul class="rating-btns" onclick="getRating(event)">
+            <li><button>1</button></li>
+            <li><button>2</button></li>
+            <li><button>3</button></li>
+            <li><button>4</button></li>
+            <li><button>5</button></li>
+          </ul>
+
+          <button class="submit-btn">Submit</button>
+        </div>
+
+        <div class="selected-rating">
+          <img
+            src="./images/illustration-thank-you.svg"
+            alt="rating_done"
+            class="thank-you-img"
+          />
+          <h3 class="rating-done-text">
+            you selected 
+            <span class="number" > </span>  out of 5
+          </h3>
+
+          <h2> Thank You </h2>
+
+          <p class="text"> We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch! </p>
+        </div>
+      </div>
+    </main>
+    <script>
+      rating_selected = 0;
+
+      function changeDom() {
+        const replaceItem = document.querySelector(".select-rating");
+        const replaceWithItem = document.querySelector(".selected-rating");
+
+        replaceItem.style.display = "none";
+        replaceWithItem.style.display = "flex";
+        replaceWithItem.style.flexDirection = "column";
+        replaceWithItem.style.alignItems = 'center';
+        const text = document.querySelector(".number");
+
+        text.textContent = rating_selected;
+        // document.querySelector('.container').removeChild(replaceItem)
+      }
+
+      function getRating(event) {
+        const button = event.target;
+        rating_selected = button.textContent;
+        changeDom();
+      }
+    </script>
+  </body>
+</html>
