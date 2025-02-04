@@ -81,11 +81,16 @@
       }
 
       function getRating(event) {
+        const allSelected = document.querySelectorAll('[active="true"]');
+        if(allSelected.length) {
+          allSelected.forEach((i) => {
+            i.setAttribute('active', false)
+          })
+        }
         const button = event.target;
         rating_selected = button.textContent;
+        button.setAttribute('active', true);
 
-        
-        button.setAttribute('active', true)
         
       }
 
