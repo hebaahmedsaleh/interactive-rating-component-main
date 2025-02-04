@@ -89,7 +89,7 @@ main {
     color: var(--Black)
 }
 
-.rating-btns li > button:active {
+.rating-btns li > button:active, .rating-btns li > button[active="true"] {
     cursor: pointer;
     background-color: var(--Orange);
     color: var(--Black)

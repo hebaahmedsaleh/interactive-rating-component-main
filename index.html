@@ -41,7 +41,7 @@
             <li><button>5</button></li>
           </ul>
 
-          <button class="submit-btn">Submit</button>
+          <button class="submit-btn" onclick="changeDom()">Submit</button>
         </div>
 
         <div class="selected-rating">
@@ -65,6 +65,9 @@
       rating_selected = 0;
 
       function changeDom() {
+        if(!rating_selected) {
+          return;
+        }
         const replaceItem = document.querySelector(".select-rating");
         const replaceWithItem = document.querySelector(".selected-rating");
 
@@ -75,14 +78,18 @@
         const text = document.querySelector(".number");
 
         text.textContent = rating_selected;
-        // document.querySelector('.container').removeChild(replaceItem)
       }
 
       function getRating(event) {
         const button = event.target;
         rating_selected = button.textContent;
-        changeDom();
+
+        
+        button.setAttribute('active', true)
+        
       }
+
+
     </script>
   </body>
 </html>
